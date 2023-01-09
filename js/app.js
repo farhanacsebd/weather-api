@@ -1,3 +1,4 @@
+// get this api 1st
 const API_KEY = `2035d75895dc3fc37469c13508195825`;
 
 const loadTemperature = city =>{
@@ -9,9 +10,17 @@ const loadTemperature = city =>{
 }
 
 const displayTemperature = data =>{
-    console.log(data.main.temp);
-    const temperature = document.getElementById('temperature')
-    temperature.innerText = data.main.temp;
+    // console.log(data.main.temp);
+    /* const temperature = document.getElementById('temperature')
+    temperature.innerText = data.main.temp; */
+    setInnerTextById('temperature',data.main.temp)
+    setInnerTextById('condition',data.weather[0].main)
+    // console.log(data.weather[0].main);
+}
+
+const setInnerTextById  = (id,text) =>{
+    const temperature = document.getElementById(id)
+    temperature.innerText = text;
 }
 
 document.getElementById('btn-search').addEventListener('click',function(){
