@@ -16,6 +16,12 @@ const displayTemperature = data =>{
     setInnerTextById('temperature',data.main.temp)
     setInnerTextById('condition',data.weather[0].main)
     // console.log(data.weather[0].main);
+
+  
+    // weather icon settings 
+    const url = ` http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    const imgIcon = document.getElementById('image-icon');
+    imgIcon.setAttribute('src', url);
 }
 
 const setInnerTextById  = (id,text) =>{
